@@ -1,0 +1,78 @@
+
+.contact-component {
+    margin: 20px 0;
+    overflow-x: hidden;
+}
+
+.contact-component .inner-div {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap: 40px;
+}
+
+.contact-component .inner-div form div:nth-child(1) {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap: 20px;
+}
+
+.contact-component .inner-div form div:nth-child(1) input {
+    width: 50%;
+}
+
+.contact-component .inner-div form div:nth-child(2) {
+    display:flex;
+    flex-direction:column;
+    margin:15px 0;
+}
+
+.contact-component .inner-div form {
+    width: 50%;
+    border: 2px solid rgb(254, 244, 244);
+    border-radius: 3px;
+    padding: 15px;
+    color: black;
+    background-color: white;
+}
+
+.contact-component .inner-div form div:nth-child(2) textarea {
+    resize: none;
+    border: 2px solid rgb(198, 192, 192);
+    padding: 0 3px;
+    outline:none !important;
+    border-radius:4px;
+    margin: 20px 0;
+}
+
+.contact-component .inner-div form div input {
+    outline: none !important;
+    border: 2px solid rgb(198, 192, 192);
+    padding: 0 3px;
+    border-radius:3px;
+}
+
+@media (max-width: 750px) {
+    .contact-component {
+        widht: 100%;
+
+    }
+    .contact-component .inner-div {
+        width: 96%;
+        margin: auto;
+        flex-direction:column;
+    }
+
+    .contact-component .inner-div form {
+        width: 100%;
+    }
+
+    .contact-component .inner-div form div:nth-child(1) {
+       flex-direction:column;
+    }
+
+    .contact-component .inner-div form div:nth-child(1) input {
+        width: 100%;
+    }
+}

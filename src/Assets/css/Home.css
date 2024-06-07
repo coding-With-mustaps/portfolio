@@ -1,0 +1,50 @@
+
+.contactme-button a{
+    border: 2px solid rgb(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 3rem;
+    transition: all .5s ease;
+}
+
+.contactme-button a:last-child {
+    background-color: #3a86ff;
+    color: white;
+    border-color: #3a86ff;
+}
+
+.contactme-button a:hover {
+    background-color: #3a86ff;
+    color: white;
+    border-color: #3a86ff;
+}
+
+.logo-div {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.logo-div img{
+    border-radius:50%;
+    vertical-alig:center;
+}
+
+.description-div {
+    max-width: 50%;
+    line-height:30px;
+}
+
+@media (max-width: 950px) {
+    .description-div {
+        max-width: 100%;
+    }
+
+    .description-div h1 {
+        font-size: 23px;
+    }
+
+    .contactme-button {
+        justify-content:center;
+        align-items:center;
+    }
+}
