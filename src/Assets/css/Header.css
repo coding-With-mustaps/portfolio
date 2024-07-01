@@ -1,7 +1,6 @@
-
 header {
     width: 100%;
-    position:sticky;
+    position:fixed;
     top:0;
     left: 0;
     overflow-x: hidden;
@@ -38,13 +37,13 @@ header nav ul a{
     color: white;
 }
 
+.onScroll_hamburger_color {
+    color: white !important;
+}
+
 .onScroll nav ul a {
     color: white;
 }
-/* 
-a.active {
-    color: blue;
-} */
 
 .isDark {
     background-color: #0e0e52;
@@ -71,11 +70,8 @@ a.active {
         background-color: #0e0e52;
         width:200px;
         height:70vh;
-        /* width: 100%;
-        height:100vh; */
 
-        /* display:flex; TO REMOVE LATER */
-        display:none;
+        display:flex; 
         flex-direction:column;
         justify-content:flex-start;
         align-items:center;
@@ -90,7 +86,8 @@ a.active {
         margin-bottom: 10px;
     }
 
-
+        /* width: 100%;
+        height:100vh; */
     .phone-style a {
         margin: 15px 0;
         color: white;

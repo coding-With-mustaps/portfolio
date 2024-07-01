@@ -55,7 +55,7 @@
 
 @media (max-width: 750px) {
     .contact-component {
-        widht: 100%;
+        width: 100%;
 
     }
     .contact-component .inner-div {
@@ -74,5 +74,13 @@
 
     .contact-component .inner-div form div:nth-child(1) input {
         width: 100%;
+    }
+
+    .contact-component .inner-div .phoneSection {
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        margin-right: 60px;
     }
 }

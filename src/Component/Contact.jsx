@@ -17,6 +17,7 @@ const Contact = () => {
                             type="text"
                             placeholder="Name"
                             aria-label="Enter your name"
+                            autoFocus
                         />
                         <input
                             className="text-xl"

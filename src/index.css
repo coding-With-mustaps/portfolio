@@ -5,6 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .poppins-thin {
     font-family: "Poppins", sans-serif;
     font-weight: 100;
@@ -174,14 +175,14 @@ html,
 body {
     width: 100%;
     min-height: 100vh;
-    /* overflow-x:hidden; */
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-family: "Roboto", sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-style: normal;
     background: #edede9;
     color: #2b2d42;
     scroll-behavior: smooth;
+    overflow-x:hidden;
 }
 
 
@@ -198,4 +199,13 @@ h6 {
 a {
     text-decoration: none;
     color: black;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1
+  }
 }

@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import useLooping from "../Hooks/Looping";
+import useLooping from "../Hooks/useLooping";
 
 import "../Assets/css/Home.css";
 
@@ -15,9 +15,17 @@ import { FaDownload } from "react-icons/fa6";
 
 import mustapha from "../Assets/images/mustapha.jpg";
 import About from "./About";
+import Services from "./Services";
+import Projects from "./Projects";
+import StaticWebPopup from "./StaticWebPopup";
+import { useState } from "react";
+import FullStackWebPopup from "./FullStackWebPopup";
 
 
 const Home = () => {
+
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [isFullStackPopupOpen, setIsFullStackPopupOpen] = useState(false);
 
     const TitleArray = ["Web developer", "Software engineer", "Full stack developer", "JavaScript developer"];
     const imagesArray = [logo4, logo5, logo10, logo2, logo3];
@@ -25,9 +33,25 @@ const Home = () => {
 
     const { currentIndex } = useLooping(TitleArray)
     const { currentIndex: index } = useLooping(myImagesArray)
+
+    const openPopup = () => {
+        setIsPopupOpen(true);
+    }
+
+    const closePopup = () => {
+        setIsPopupOpen(false)
+    }
+
+    const openFullStackPopup = () => {
+        setIsFullStackPopupOpen(true);
+    }
+
+    const closeFullStackPopup = () => {
+        setIsFullStackPopupOpen(false)
+    }
     
     return (
-        <div>
+        <div className="mt-12">
             <section>
                 <div className="flex flex-wrap justify-center items-center gap-x-16 mt-5 p-4">
                     <div className="description-div">
@@ -61,6 +85,23 @@ const Home = () => {
                 </div>
             </section>
             <About />
+            <Services />
+            <Projects 
+                openPopup={openPopup}
+                openFullStackPopup={openFullStackPopup}
+            />
+            {
+                isPopupOpen ? 
+                <StaticWebPopup 
+                    closePopup={closePopup}
+                /> : ""
+            }
+            {
+                isFullStackPopupOpen ? 
+                    <FullStackWebPopup 
+                        closeFullStackPopup={closeFullStackPopup}
+                    /> : ""
+            }
         </div>
     )
 };

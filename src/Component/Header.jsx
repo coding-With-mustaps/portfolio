@@ -1,20 +1,22 @@
 // Packages
-import {Link, NavLink, useLocation } from "react-router-dom";
+import {Link, useLocation } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { NavHashLink } from "react-router-hash-link";
+import { IoClose } from "react-icons/io5";
 import { useState, useEffect, useContext } from "react";
-
-// Images
-import logo from "../Assets/images/logo.png";
-
-// Icons
 import { FcAbout } from "react-icons/fc";
 import { FaHome } from "react-icons/fa";
 import { FaServicestack } from "react-icons/fa6";
 import { FaProjectDiagram } from "react-icons/fa";
 
+// Images
+import logo from "../Assets/images/logo.png";
+
+// Icons
+
 // Style
 import "../Assets/css/Header.css";
+
+// Components
 import { ThemeContext } from "../Context/Context";
 
 const Header = () => {
@@ -22,7 +24,7 @@ const Header = () => {
     const [ scroll, setScroll ] = useState(false);
     const { hash } = useLocation();
     const {isLightTheme} = useContext(ThemeContext);
-    const [hide, setHide] = useState(true);
+    const [isHamburgetOpen, setIsHamburgetOpen] = useState(false);
 
     useEffect( () => {
         
@@ -31,8 +33,8 @@ const Header = () => {
             setScroll(isScroll);
         };
 
+        console.log(window.innerWidth)
         window.addEventListener("scroll", handleScroll)
-
         return () => window.removeEventListener("scroll", handleScroll);
     }, [scroll])
 
@@ -45,9 +47,13 @@ const Header = () => {
         }
       }, [hash]);
 
-    const handleHamburger = () => {
-        setHide(false)
+    const openHamburger = () => {
+        setIsHamburgetOpen(true)
         
+    }
+
+    const closeHamburget = () => {
+        setIsHamburgetOpen(false)
     }
 
     const hideStyle = {
@@ -58,7 +64,7 @@ const Header = () => {
         <header className={ scroll ? "onScroll" : "" || !isLightTheme ? "isDark" : ""}>
             <nav>
                 <img width="80" src={logo} alt="logo image" />
-                <ul  className="phone-style">
+                <ul style={!isHamburgetOpen && window.innerWidth <= 770 ? {display: "none"} : {}}  className={isHamburgetOpen ? "phone-style" : ""}>
                     <h2 className="only-phone">Menu</h2>
                     <Link className={` ${!isLightTheme ? "text-white" : ""} ${hash === "" ? "active-link" : ""}`} to="/"><FaHome className="mr-1 roboto-medium"/> Home</Link>
                     <Link className={` ${!isLightTheme ? "text-white" : ""} ${hash === "#about" ? "active-link" : ""}`} to="/#about"><FcAbout className="mr-1 roboto-medium"/> About</Link>
@@ -66,7 +72,21 @@ const Header = () => {
                     <Link className={` ${!isLightTheme ? "text-white" : ""} ${hash === "#projects" ? "active-link" : ""}`} to="#projects"><FaProjectDiagram className="mr-1 roboto-medium"/> Projects</Link>
                 </ul>
             </nav>
-            <button onClick={handleHamburger} className="hmburger"><GiHamburgerMenu className="absolute top-5 right-4 text-xl"/></button>
+            <button 
+                onClick={isHamburgetOpen ? closeHamburget : openHamburger} 
+                style={isLightTheme ? {color: "black"} : {color: "white"}} 
+                className="hmburger"
+            >
+                {
+                    isHamburgetOpen ?
+                    <IoClose className="absolute text-white top-5 right-4 text-2xl"/> :
+                    <GiHamburgerMenu 
+                        style={isLightTheme ? {color: "black"} : {}} 
+                        className={`absolute top-5 right-4 text-xl ${scroll ? "onScroll_hamburger_color" : ""}`}
+                    />     
+                }
+                
+            </button>
         </header>
     )
 };

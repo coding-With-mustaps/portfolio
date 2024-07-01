@@ -1,0 +1,26 @@
+
+.static-web-popup-main-div {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
+
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.static-web-popup-main-div .static-web-popup {
+    width: 30%;
+    height: 400px;
+    background-color: white;
+    color: black;
+}
+
+@media (max-width: 770px) { 
+    .static-web-popup-main-div .static-web-popup {
+        width: 90%;
+    }
+}
